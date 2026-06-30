@@ -9,3 +9,8 @@ WHERE `posts`.`id` NOT IN (
 SELECT `post_id`
 FROM `likes` 
 );
+
+-- 3. Conta il numero di like per ogni post (165)
+SELECT post_id, COUNT(post_id) AS likes
+FROM likes
+GROUP BY post_id;
