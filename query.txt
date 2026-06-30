@@ -5,7 +5,7 @@ FROM `users`;
 -- 2. Seleziona tutti i post senza Like (13)
 SELECT `posts`.`title`, `posts`.`user_id`, `posts`.`tags`
 FROM `posts`
-INNER JOIN `likes` ON  `posts`.`id` = `likes`.`post_id`
-WHERE `likes`.`post_id` IS NULL;
-
-//SBAGLIATO
+WHERE `posts`.`id` NOT IN (
+SELECT `post_id`
+FROM `likes` 
+);
