@@ -14,3 +14,10 @@ FROM `likes`
 SELECT post_id, COUNT(post_id) AS likes
 FROM likes
 GROUP BY post_id;
+
+-- 4. Ordina gli utenti per il numero di media caricati (25)
+SELECT users.username, COUNT(medias.id) AS num_media
+FROM users 
+LEFT JOIN medias ON users.id = medias.user_id
+GROUP BY users.id
+ORDER BY num_media DESC;
