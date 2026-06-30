@@ -1,3 +1,10 @@
 -- 1. Seleziona tutti gli utenti e calcolane l'età (25)
 SELECT TIMESTAMPDIFF(YEAR, `birthdate` ,CURDATE()) AS età
 FROM `users`;
+
+-- 2. Seleziona tutti i post senza Like (13)
+SELECT `posts`.`title`, `posts`.`user_id`, `posts`.`tags`
+FROM `posts`
+INNER JOIN `likes` ON  `posts`.`id` = `likes`.`post_id`;
+
+//SBAGLIATO
